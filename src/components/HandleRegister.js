@@ -4,6 +4,7 @@ import Address from './Address';
 import Academic from './Academic';
 import Confirm from './Confirm';
 import RegStep from './RegStep';
+import StudentDeclaration from './StudentDeclaration';
 
 function HandleRegister() {
     const [data, setData] = useState({
@@ -21,18 +22,20 @@ function HandleRegister() {
         studyProgram: '',
         studyDate: '',
 
-        // //Step 2
+        //Step 2
         address: '',
         district: '',
         postalCode: '',
         city: '',
         province: '',
 
-        // //Step 3
+        //Step 3
         schoolName: '',
         concentration: '',
         schoolLocation: '',
         graduationYear: '',
+
+        confirmation: false,
     });
 
     const prevStep = () => {
@@ -43,8 +46,12 @@ function HandleRegister() {
         setData({...data, step: data.step + 1});
     }
 
-    const handleChange = (input, date) => e => {
+    const handleChange = input => e => {
         setData({...data, [input]: e.target.value });
+    }
+
+    const handleCheckChange = input => e => {
+        setData({...data, [input]: e.target.checked });
     }
 
     return (
@@ -71,6 +78,11 @@ function HandleRegister() {
                 nextStep = {nextStep}
                 prevStep = {prevStep}
                 handleChange = {handleChange}
+                data = {data}
+            />
+            <StudentDeclaration 
+                prevStep = {prevStep}
+                handleChange = {handleCheckChange}
                 data = {data}
             />
         </>

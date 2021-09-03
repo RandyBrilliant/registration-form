@@ -4,7 +4,6 @@ function Confirm({nextStep, prevStep, handleChange, data}) {
     const handleSubmit = e => {
         e.preventDefault();
         nextStep();
-        console.log(data);
     }
 
     const camel2title = (camelCase) => camelCase
@@ -25,10 +24,10 @@ function Confirm({nextStep, prevStep, handleChange, data}) {
                 </p>
                 <ul className="divide-y divide-gray-700 mt-10">
                     {Object.entries(data).map(([key, value]) => (
-                        key !== "step" ? (
+                        key !== "step" && key !== "confirmation" ? (
                             <li key={key} className="md:grid md:grid-cols-2 hover:bg-gray-50 md:space-y-0 space-y-1 p-4">
                                 <span className="font-bold text-lg">{camel2title(key)}</span>
-                                <span className="text-md font-secondary">{value === "" ? "-" : value}</span>
+                                <span className="text-md font-secondary">: {value === "" ? "-" : value}</span>
                             </li>
                         ) : (
                             null
@@ -57,7 +56,7 @@ function Confirm({nextStep, prevStep, handleChange, data}) {
                         block={false}
                         iconOnly={false}
                         ripple="light"
-                        onClick={e => e.preventDefault()}
+                        onClick={handleSubmit}
                     >
                         Continue
                     </Button>

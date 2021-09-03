@@ -1,5 +1,10 @@
 module.exports = {
   theme: {
+    extend: {
+      backgroundImage: theme => ({
+       'login-background': "url('/src/assets/img/login-background.jpg')",
+      })
+    },
     fontFamily: {
      'primary': ['Kumbh Sans', 'sans-serif'],
      'secondary': ['Montserrat', 'sans-serif'],

@@ -10,7 +10,7 @@ function RegStep({ data }) {
         stepPercentage = 50;
     } else if (data.step === 3) {
         stepPercentage = 75;
-    } else if (data.step === 4) {
+    } else if (data.step === 4 || data.step === 5) {
         stepPercentage = 100;
     } else {
         stepPercentage = 0;
@@ -22,7 +22,7 @@ function RegStep({ data }) {
         stepDetails = "You're one step closer...";
     } else if (data.step === 3) {
         stepDetails = "Just a little bit more...";
-    } else if (data.step === 4) {
+    } else if (data.step === 4 || data.step === 5) {
         stepDetails = "You're almost there!";
     } else {
         stepDetails = 0;
